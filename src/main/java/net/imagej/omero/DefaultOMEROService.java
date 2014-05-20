@@ -340,6 +340,11 @@ public class DefaultOMEROService extends AbstractService implements
 
 		datasetService.save(dataset, omeroDestination);
 
+		final Object globalMetadata = dataset.getProperties().get("scifio.metadata.global");
+		final Object imageMetadata = dataset.getProperties().get("scifio.metadata.image");
+		System.out.println("globalMetadata = " + globalMetadata + " [" + globalMetadata.getClass() + "]");
+		System.out.println("imageMetadata = " + imageMetadata + " [" + imageMetadata.getClass() + "]");
+
 		// FIXME! Return correct Image ID
 		return -1;
 	}
